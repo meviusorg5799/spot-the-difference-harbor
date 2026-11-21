@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lantern Canal — Spot the Difference</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hud">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">🏮</span>
+    <div>
+      <h1>Lantern Canal</h1>
+      <p class="tagline">Spot the Difference · a floating canal market at dusk</p>
+    </div>
+  </div>
+  <div class="stats" role="status" aria-live="polite">
+    <div class="stat"><span class="stat-label">Found</span><span class="stat-value" id="found-count">0 / 7</span></div>
+    <div class="stat"><span class="stat-label">Remaining</span><span class="stat-value" id="remain-count">7 left</span></div>
+    <div class="stat"><span class="stat-label">Time</span><span class="stat-value" id="timer">3:00</span></div>
+    <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="score">0</span></div>
+    <div class="stat"><span class="stat-label">Hints</span><span class="stat-value" id="hints">3</span></div>
+  </div>
+</header>
+
+<nav class="scene-bar" aria-label="Scenes">
+  <span class="scene-bar-label">Scenes:</span>
+  <button class="scene-btn active" data-scene="0" type="button">1 · Lantern Canal</button>
+  <button class="scene-btn" data-scene="1" type="button">2 · Lighthouse Cove</button>
+  <button class="scene-btn" data-scene="2" type="button">3 · Night Garden</button>
+  <button class="action-btn" id="hint-btn" type="button">💡 Hint (H)</button>
+  <button class="action-btn" id="magnify-btn" type="button" aria-pressed="false">🔍 Magnifier (M)</button>
+  <button class="action-btn" id="sound-btn" type="button" aria-pressed="true">🔊 Sound</button>
+  <button class="action-btn" id="restart-btn" type="button">↺ Restart scene</button>
+</nav>
+
+<main class="boards">
+  <figure class="panel">
+    <figcaption><span class="panel-tag">A</span> Left picture</figcaption>
+    <canvas id="panel-left" width="600" height="440" tabindex="0" aria-label="Left picture. Use arrow keys to move the crosshair, Enter to mark a difference."></canvas>
+  </figure>
+  <div class="versus" aria-hidden="true">VS</div>
+  <figure class="panel">
+    <figcaption><span class="panel-tag">B</span> Right picture <span class="panel-note">— 7 differences hide here</span></figcaption>
+    <canvas id="panel-right" width="600" height="440" tabindex="0" aria-label="Right picture. Use arrow keys to move the crosshair, Enter to mark a difference."></canvas>
+  </figure>
+</main>
+
+<div class="banner" id="banner" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="help">
+  <p><strong>How to play:</strong> the two pictures look the same — but 7 things differ. Click a difference on either picture (or move the crosshair with the arrow keys and press <kbd>Enter</kbd> / <kbd>Space</kbd>) to ring it on both panels. Find all 7 before the lanterns burn down.</p>
+  <p class="keys"><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> move crosshair · <kbd>Enter</kbd> mark · <kbd>H</kbd> hint · <kbd>M</kbd> magnifier · <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd> switch scene</p>
+</footer>
+
+<p id="status" class="sr-only" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
